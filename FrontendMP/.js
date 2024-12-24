@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const listarProjetos = async () => {
-  try {
-    const response = await axios.get('/api/projetos');
+axios.get('/api/cliente')  // Não precisa do URL completo, pois o proxy faz a redireção
+  .then(response => {
     console.log(response.data);
-  } catch (error) {
-    console.error("Erro ao listar projetos:", error);
-  }
-};
+  })
+  .catch(error => {
+    console.error('Erro ao fazer a requisição:', error);
+  });
+
