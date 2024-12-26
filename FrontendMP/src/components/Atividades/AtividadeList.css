@@ -1,0 +1,83 @@
+/* Estilos gerais */
+.atividade-list-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.search-form label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.search-form input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: border-color 0.3s;
+}
+
+.search-form input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.atividades-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.atividade-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.atividade-card:hover {
+  transform: translateY(-5px);
+}
+
+.atividade-card h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.atividade-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+.atividade-card p + p {
+  margin-top: 8px;
+}
+
+/* Adicionando estilo para mensagem de "Nenhuma atividade encontrada" */
+.atividades-list p {
+  font-size: 18px;
+  color: #888;
+  text-align: center;
+}
