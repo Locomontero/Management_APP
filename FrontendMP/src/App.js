@@ -1,12 +1,12 @@
-// src/App.js
+
 import React, { useState } from 'react';
 import './App.css';
-import ClienteList from './components/ClienteList';
-import CreateCliente from './components/CreateCliente';
-import ProjetoList from './components/ProjetoList';
-import CreateProjeto from './components/CreateProjeto';
-import AtividadeList from './components/AtividadeList';
-import CreateAtividade from './components/CreateAtividade';
+import ClienteList from './components/Clientes/ClienteList';
+import CreateCliente from './components/Clientes/CreateCliente';
+import ProjetoList from './components/Projetos/ProjetoList';
+import CreateProjeto from './components/Projetos/CreateProjeto';
+import AtividadeList from './components/Atividades/AtividadeList';
+import CreateAtividade from './components/Atividades/CreateAtividade';
 
 const App = () => {
   const [clientes, setClientes] = useState([]);

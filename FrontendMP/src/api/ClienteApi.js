@@ -2,10 +2,11 @@ import axios from 'axios';
 
 const apiUrl = 'http://localhost:8080/clientes';
 
-// Função para pegar todos os clientes
-export const getClientes = async () => {
+export const getClientes = async (search = '') => {
   try {
-    const response = await axios.get(apiUrl);
+    const url = search ? `${apiUrl}?search=${search}` : apiUrl;
+
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error('Erro ao buscar clientes', error);
