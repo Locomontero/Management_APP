@@ -1,65 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './AtividadeList.css'; // Importando o CSS
+import { useParams } from 'react-router-dom';
 
-const AtividadeList = ({ clienteId, projetoId, setSelectedAtividadeId }) => {
+const AtividadeList = () => {
   const [atividades, setAtividades] = useState([]);
-  const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
+  const { clienteId, projetoId } = useParams();
 
-  // Função para carregar as atividades de um projeto com base no termo de busca
-  const loadAtividades = async (searchTerm = '') => {
-    try {
-      const url = searchTerm
-        ? `http://localhost:8080/clientes/${clienteId}/projetos/${projetoId}/atividades?search=${searchTerm}`
-        : `http://localhost:8080/clientes/${clienteId}/projetos/${projetoId}/atividades`;
-      const response = await axios.get(url);
-      setAtividades(response.data);
-    } catch (error) {
-      console.error('Erro ao carregar as atividades:', error);
-    }
-  };
-
-  // Efeito para carregar as atividades ao montar o componente
   useEffect(() => {
-    if (clienteId && projetoId) loadAtividades(); // Carregar atividades apenas se o clienteId e projetoId estiverem definidos
+    const fetchAtividades = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/clientes/${clienteId}/projetos/${projetoId}/atividades`);
+        setAtividades(response.data);
+      } catch (err) {
+        console.error("Erro ao carregar atividades", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAtividades();
   }, [clienteId, projetoId]);
 
-  // Função para lidar com a mudança no campo de busca
-  const handleSearchChange = (e) => {
-    const searchTerm = e.target.value;
-    setSearch(searchTerm);
-    loadAtividades(searchTerm); // Carregar atividades com o novo termo de busca
-  };
-
   return (
-    <div className="atividade-list-container">
-      <h2>Atividades do Projeto</h2>
-
-      {/* Formulário de busca */}
-      <div className="search-form">
-        <label htmlFor="search">Buscar Atividade:</label>
-        <input
-          type="text"
-          id="search"
-          value={search}
-          onChange={handleSearchChange}
-          placeholder="Digite o nome da atividade"
-        />
-      </div>
-
-      {/* Lista de Atividades */}
-      <div className="atividades-list">
-        {atividades.length === 0 ? (
-          <p>Nenhuma atividade encontrada.</p>
-        ) : (
-          atividades.map(atividade => (
-            <div key={atividade.id} className="atividade-card" onClick={() => setSelectedAtividadeId(atividade.id)}>
-              <h3>{atividade.nome}</h3>
+    <div className="atividade-list">
+      <h3>Atividades do Projeto</h3>
+      {loading ? (
+        <p>Carregando...</p>
+      ) : (
+        <ul>
+          {atividades.map(atividade => (
+            <li key={atividade.id}>
+              <h4>{atividade.nome}</h4>
               <p>{atividade.descricao}</p>
-            </div>
-          ))
-        )}
-      </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

@@ -1,31 +1,37 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './ClienteManagement.css';
 
 const CreateCliente = () => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // Função para criar um novo cliente
   const handleCreateCliente = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
+    const cliente = { nome, email, telefone };
+
     try {
-      const cliente = { nome, email, telefone };
       const response = await axios.post('http://localhost:8080/clientes', cliente);
       alert('Cliente criado com sucesso!');
       setNome('');
       setEmail('');
       setTelefone('');
-    } catch (error) {
-      console.error('Erro ao criar cliente:', error);
-      alert('Erro ao criar cliente!');
+      setLoading(false);
+    } catch (err) {
+      setError('Erro ao criar cliente!');
+      setLoading(false);
     }
   };
 
   return (
-    <div className="create-cliente">
+    <div className="create-cliente-container">
       <h2>Criar Novo Cliente</h2>
-      <form onSubmit={handleCreateCliente}>
+      <form onSubmit={handleCreateCliente} className="create-cliente-form">
         <input
           type="text"
           value={nome}
@@ -47,7 +53,10 @@ const CreateCliente = () => {
           placeholder="Telefone"
           required
         />
-        <button type="submit">Criar Cliente</button>
+        <button type="submit" disabled={loading}>
+          {loading ? 'Criando...' : 'Criar Cliente'}
+        </button>
+        {error && <p className="error-message">{error}</p>}
       </form>
     </div>
   );

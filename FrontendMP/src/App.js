@@ -1,39 +1,37 @@
-
-import React, { useState } from 'react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import ClienteList from './components/Clientes/ClienteList';
 import CreateCliente from './components/Clientes/CreateCliente';
 import ProjetoList from './components/Projetos/ProjetoList';
 import CreateProjeto from './components/Projetos/CreateProjeto';
 import AtividadeList from './components/Atividades/AtividadeList';
 import CreateAtividade from './components/Atividades/CreateAtividade';
+import './components/Clientes/ClienteManagement.css';
 
 const App = () => {
-  const [clientes, setClientes] = useState([]);
-  const [selectedClienteId, setSelectedClienteId] = useState(null);
-  const [selectedProjetoId, setSelectedProjetoId] = useState(null);
-
   return (
-    <div className="container">
-      <h1>Gestão de Clientes</h1>
-      <CreateCliente onCreate={setClientes} />
-      {/* Passando corretamente o estado de clientes */}
-      <ClienteList clientes={clientes} setSelectedClienteId={setSelectedClienteId} />
+    <Router>
+      <div className="cliente-management">
+        <h2>Gestão de Clientes</h2>
 
-      {selectedClienteId && (
-        <div>
-          <ProjetoList clienteId={selectedClienteId} setSelectedProjetoId={setSelectedProjetoId} />
-          <CreateProjeto clienteId={selectedClienteId} />
-
-          {selectedProjetoId && (
-            <div>
-              <AtividadeList clienteId={selectedClienteId} projetoId={selectedProjetoId} />
-              <CreateAtividade clienteId={selectedClienteId} projetoId={selectedProjetoId} />
-            </div>
-          )}
+        {/* Links de Navegação */}
+        <div className="navigation-links">
+          <Link to="/clientes">Clientes</Link>
+          <Link to="/projetos">Projetos</Link>
+          <Link to="/atividades">Atividades</Link>
         </div>
-      )}
-    </div>
+
+        {/* Rotas do React Router */}
+        <Routes>
+          <Route path="/clientes" element={<ClienteList />} />
+          <Route path="/clientes/criar" element={<CreateCliente />} />
+          <Route path="/clientes/:clienteId/projetos" element={<ProjetoList />} />
+          <Route path="/clientes/:clienteId/projetos/criar" element={<CreateProjeto />} />
+          <Route path="/clientes/:clienteId/projetos/:projetoId/atividades" element={<AtividadeList />} />
+          <Route path="/clientes/:clienteId/projetos/:projetoId/atividades/criar" element={<CreateAtividade />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

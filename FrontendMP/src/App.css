@@ -1,3 +1,46 @@
+
+/* Estilo para a barra de navegação */
+.navbar {
+  display: flex;
+  justify-content: center;  /* Centraliza os links na barra */
+  gap: 20px;  /* Espaçamento entre os links */
+  margin-top: 20px;
+}
+
+.nav-link {
+  text-decoration: none;  /* Remove o sublinhado do link */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #4CAF50;
+  background-color: #fff;
+  border: 2px solid #4CAF50;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Estilo para o link ativo */
+.nav-link.active {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+
+
 /* Resetando estilos básicos para garantir consistência entre os navegadores */
 * {
   margin: 0;

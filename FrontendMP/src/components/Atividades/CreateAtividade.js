@@ -1,38 +1,36 @@
-
 import React, { useState } from 'react';
-import { createAtividade } from '../../api/AtividadeApi';
+import axios from 'axios';
+import { useParams } from 'react-router-dom'; // Para pegar o clienteId e projetoId da URL
 
-const CreateAtividade = ({ clienteId, projetoId }) => {
+const CreateAtividade = () => {
   const [nome, setNome] = useState('');
-  const [descricao, setDescricao] = useState('');
+  const { clienteId, projetoId } = useParams(); // Pega o clienteId e projetoId da URL
 
-  const handleSubmit = (e) => {
+  const handleCreateAtividade = async (e) => {
     e.preventDefault();
-    const atividade = { nome, descricao };
 
-    createAtividade(clienteId, projetoId, atividade)
-      .then(() => {
-        setNome('');
-        setDescricao('');
-        alert('Atividade criada com sucesso!');
-      })
-      .catch(error => {
-        console.error("Erro ao criar atividade", error);
-      });
+    try {
+      const atividade = { nome }; // O nome da atividade a ser enviado
+      await axios.post(`http://localhost:8080/clientes/${clienteId}/projetos/${projetoId}/atividades`, atividade);
+      alert('Atividade criada com sucesso!');
+      setNome('');
+    } catch (error) {
+      console.error('Erro ao criar atividade:', error);
+      alert('Erro ao criar atividade!');
+    }
   };
 
   return (
-    <div>
-      <h3>Criar Nova Atividade</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nome:</label>
-          <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} required />
-        </div>
-        <div>
-          <label>Descrição:</label>
-          <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} required />
-        </div>
+    <div className="create-atividade">
+      <h2>Criar Nova Atividade</h2>
+      <form onSubmit={handleCreateAtividade}>
+        <input
+          type="text"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+          placeholder="Nome da Atividade"
+          required
+        />
         <button type="submit">Criar Atividade</button>
       </form>
     </div>
