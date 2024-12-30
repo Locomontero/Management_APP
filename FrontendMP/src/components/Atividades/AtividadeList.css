@@ -1,83 +1,136 @@
-/* Estilos gerais */
-.atividade-list-container {
-  max-width: 800px;
-  margin: 20px auto;
+/* Estilo para o cabeçalho da lista de atividades */
+.atividade-list {
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
   text-align: center;
-  color: #333;
 }
 
-.search-form {
-  display: flex;
-  flex-direction: column;
+.atividade-list h3 {
+  font-size: 24px;
+  color: #333;
   margin-bottom: 20px;
 }
 
-.search-form label {
-  font-size: 16px;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.search-form input {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 100%;
-  margin-bottom: 10px;
-  transition: border-color 0.3s;
-}
-
-.search-form input:focus {
-  border-color: #4CAF50;
-  outline: none;
-}
-
-.atividades-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
+/* Cards das atividades */
 .atividade-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  margin: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .atividade-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px); /* Eleva o card */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
 }
 
-.atividade-card h3 {
-  margin-top: 0;
-  font-size: 18px;
+.atividade-card h4 {
+  font-size: 20px;
   color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .atividade-card p {
   color: #555;
   font-size: 14px;
+  margin: 5px 0;
 }
 
-.atividade-card p + p {
-  margin-top: 8px;
+.atividade-card a {
+  margin-top: 10px;
+  text-decoration: none;
+  color: #ADD8E6; /* Cor semelhante à do card de projeto */
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Adicionando estilo para mensagem de "Nenhuma atividade encontrada" */
-.atividades-list p {
-  font-size: 18px;
-  color: #888;
+.atividade-card a:hover {
+  background-color: #ADD8E6;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Estilo para o formulário de criação de atividades */
+.form-criar-atividade {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+
+.form-criar-atividade input,
+.form-criar-atividade textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-criar-atividade button {
+  padding: 10px 20px;
+  background-color: #0796B0; /* Cor do botão similar à do projeto */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.form-criar-atividade button:hover {
+  background-color: #45a049;
+}
+
+/* Formulário de criação de atividade (estilo opcional para input ou textarea) */
+.form-criar-atividade input,
+.form-criar-atividade textarea {
+  border: 1px solid #ADD8E6; /* Cor do input, similar aos links do card de projeto */
+}
+
+.form-criar-atividade input:focus,
+.form-criar-atividade textarea:focus {
+  border-color: #0796B0; /* Cor de foco nos inputs */
+  outline: none;
+}
+/* Botão Adicionar Atividade */
+button.adicionar-atividade {
+  padding: 10px 20px;
+  background-color: #0796B0; /* Cor semelhante aos outros botões */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button.adicionar-atividade:hover {
+  background-color: #45a049; /* Cor de hover */
+}
+
+/* Estilo do botão ao ser clicado (com um leve efeito de pressionado) */
+button.adicionar-atividade:active {
+  transform: translateY(2px);
 }

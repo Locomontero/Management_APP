@@ -14,14 +14,12 @@ const App = () => {
       <div className="cliente-management">
         <h2>Gestão de Clientes</h2>
 
-        {/* Links de Navegação */}
         <div className="navigation-links">
           <Link to="/clientes">Clientes</Link>
           <Link to="/projetos">Projetos</Link>
           <Link to="/atividades">Atividades</Link>
         </div>
 
-        {/* Rotas do React Router */}
         <Routes>
           <Route path="/clientes" element={<ClienteList />} />
           <Route path="/clientes/criar" element={<CreateCliente />} />
@@ -29,6 +27,7 @@ const App = () => {
           <Route path="/clientes/:clienteId/projetos/criar" element={<CreateProjeto />} />
           <Route path="/clientes/:clienteId/projetos/:projetoId/atividades" element={<AtividadeList />} />
           <Route path="/clientes/:clienteId/projetos/:projetoId/atividades/criar" element={<CreateAtividade />} />
+          <Route path="/projetos" element={<ProjetoList />} /> {/* Rota para exibir todos os projetos */}
         </Routes>
       </div>
     </Router>

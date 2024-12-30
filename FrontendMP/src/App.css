@@ -1,71 +1,25 @@
-
-/* Estilo para a barra de navegação */
-.navbar {
-  display: flex;
-  justify-content: center;  /* Centraliza os links na barra */
-  gap: 20px;  /* Espaçamento entre os links */
-  margin-top: 20px;
-}
-
-.nav-link {
-  text-decoration: none;  /* Remove o sublinhado do link */
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #4CAF50;
-  background-color: #fff;
-  border: 2px solid #4CAF50;
-  border-radius: 25px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-link:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
-/* Estilo para o link ativo */
-.nav-link.active {
-  background-color: #4CAF50;
-  color: white;
-  font-weight: bold;
-}
-
-.container {
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-}
-
-
-
-/* Resetando estilos básicos para garantir consistência entre os navegadores */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Estilo global do body */
 body {
-  background-color: #f4f6f9;
+  background: linear-gradient(to right, #f4f6f9, #e0e5ec);
   color: #333;
   font-size: 16px;
   line-height: 1.6;
-  margin: 20px;
+  margin: 0;
+  padding: 0;
 }
 
-/* Container principal para centralizar o conteúdo */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Cabeçalho da aplicação */
 header {
   text-align: center;
   margin-bottom: 40px;
@@ -78,23 +32,59 @@ header h1 {
 }
 
 header h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #78909c;
+  margin-bottom: 20px;
+  font-weight: 300;
 }
 
-/* Formulários (adicionando algum espaçamento e estilo) */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  color: #4CAF50;
+  background-color: #fff;
+  border: 2px solid #4CAF50;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #4CAF50;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  transform: scale(1.1);
+}
+
 form {
   background-color: white;
-  padding: 20px;
+  padding: 30px;
   margin-bottom: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 form h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #5c6bc0;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 form label {
@@ -106,45 +96,45 @@ form label {
 
 form input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 12px;
+  margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s ease;
 }
 
 form input:focus {
   border-color: #5c6bc0;
   outline: none;
+  box-shadow: 0 0 10px rgba(92, 107, 192, 0.3);
 }
 
-/* Estilo dos botões */
 button {
   background-color: #5c6bc0;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: #3f51b5;
+  transform: translateY(-2px);
 }
 
-/* Lista de clientes e projetos (organizando as listas) */
 .lista {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .lista h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #5c6bc0;
   margin-bottom: 15px;
 }
@@ -156,41 +146,43 @@ button:hover {
 
 .lista ul li {
   background-color: #f9f9f9;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
   border-left: 5px solid #5c6bc0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.lista ul li:last-child {
-  margin-bottom: 0;
+.lista ul li:hover {
+  background-color: #f0f0f0;
+  transform: translateX(5px);
 }
 
 .lista ul li button {
   background-color: #ff7043;
-  padding: 5px 10px;
+  padding: 6px 12px;
   border-radius: 5px;
   color: white;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .lista ul li button:hover {
   background-color: #f4511e;
+  transform: scale(1.1);
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
   header h1 {
     font-size: 2rem;
   }
 
   form, .lista {
-    padding: 15px;
+    padding: 20px;
   }
 
   form input, button {
@@ -199,5 +191,16 @@ button:hover {
 
   button {
     width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    padding: 10px 20px;
   }
 }

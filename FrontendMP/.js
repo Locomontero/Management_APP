@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.get('/api/cliente')  // Não precisa do URL completo, pois o proxy faz a redireção
+axios.get('/api/cliente')
   .then(response => {
     console.log(response.data);
   })

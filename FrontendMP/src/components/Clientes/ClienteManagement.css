@@ -1,18 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 /* Estilos gerais */
 .cliente-management {
   margin: 20px;
-  padding-top: 20px; /* Para garantir que o conteúdo não fique preso ao topo */
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px; /* Espaço entre os componentes */
+  gap: 40px;
 }
 
+/* Estilo do título h2 */
 h2 {
-  font-size: 28px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
   color: #333;
   margin-bottom: 20px;
   text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* Links de navegação */
@@ -34,7 +40,7 @@ h2 {
 }
 
 .navigation-links a:hover {
-  background-color: #4CAF50;
+  background-color: #333;
   color: white;
 }
 
@@ -56,7 +62,7 @@ h2 {
 
 .search-cliente-form button {
   padding: 10px 15px;
-  background-color: #4CAF50;
+  background-color: #333;
   color: white;
   border: none;
   border-radius: 4px;
@@ -65,7 +71,7 @@ h2 {
 }
 
 .search-cliente-form button:hover {
-  background-color: #45a049;
+  background-color: #90A4AE;
 }
 
 /* Formulário de criação de cliente */
@@ -100,13 +106,13 @@ h2 {
 }
 
 .create-cliente-form input:focus {
-  border-color: #4CAF50;
+  border-color: #B0BEC5;
   outline: none;
 }
 
 .create-cliente-form button {
   padding: 12px 20px;
-  background-color: #4CAF50;
+  background-color: #333;
   color: white;
   font-size: 16px;
   border: none;
@@ -119,7 +125,7 @@ h2 {
 }
 
 .create-cliente-form button:hover {
-  background-color: #45a049;
+  background-color: #90A4AE;
   transform: scale(1.05);
 }
 
@@ -127,50 +133,51 @@ h2 {
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
 }
+
 /* Título da Lista de Clientes */
 h2.lista-clientes-titulo {
-  font-family: 'Poppins', sans-serif; /* Fonte mais moderna e limpa */
-  font-size: 20px; /* Tamanho maior para dar destaque */
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
   color: #333;
-  text-align: center; /* Centraliza o texto */
-  margin-bottom: 20px; /* Espaço abaixo do título */
-  font-weight: 600; /* Deixa o título mais forte */
-  text-transform: uppercase; /* Coloca o título em letras maiúsculas */
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* Lista de clientes */
 .clientes-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Grid responsivo */
-  gap: 20px; /* Espaço entre os cards */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
   width: 100%;
   max-width: 900px;
-  margin: 0 auto; /* Centraliza os cards */
+  margin: 0 auto;
   padding: 20px;
 }
 
 /* Card de cliente */
 .cliente-card {
-  background-color: #fff;
-  border-radius: 12px; /* Borda arredondada */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  background-color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza os itens */
-  text-align: center; /* Alinha o texto ao centro */
-  height: 250px; /* Tamanho fixo para os cards */
-  overflow: hidden; /* Esconde o conteúdo que ultrapassar os limites */
+  align-items: center;
+  text-align: center;
+  height: 250px;
+  overflow: hidden;
   position: relative;
   transition: all 0.3s ease;
 }
 
 .cliente-card:hover {
-  transform: translateY(-5px); /* Efeito de elevação */
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
-  background-color: #f9f9f9; /* Leve alteração de fundo no hover */
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
 }
 
 /* Título do card */
@@ -193,7 +200,7 @@ h2.lista-clientes-titulo {
 .cliente-card a {
   margin-top: 10px;
   text-decoration: none;
-  color: #4CAF50; /* Cor verde agradável */
+  color: #B0BEC5;
   font-size: 16px;
   font-weight: bold;
   padding: 8px 15px;
@@ -202,23 +209,23 @@ h2.lista-clientes-titulo {
 }
 
 .cliente-card a:hover {
-  background-color: #4CAF50;
-  color: #fff; /* Texto branco no hover */
-  text-decoration: none; /* Retira o sublinhado */
+  background-color: #B0BEC5;
+  color: #fff;
+  text-decoration: none;
 }
 
 /* Botão "Criar Cliente" */
 .criar-cliente-btn {
   display: block;
   width: 200px;
-  margin: 20px auto 30px; /* Centraliza o botão e cria um espaçamento */
+  margin: 20px auto 30px;
   padding: 12px 20px;
-  background-color: #4CAF50; /* Cor verde */
+  background-color: #0796B0;
   color: white;
   font-size: 16px;
   font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -226,11 +233,10 @@ h2.lista-clientes-titulo {
 
 .criar-cliente-btn:hover {
   background-color: #45a049;
-  transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+  transform: scale(1.05);
 }
 
 .criar-cliente-btn:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
 }
-

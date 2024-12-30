@@ -7,3 +7,5 @@ const api = axios.create({
 
 export const getProjetosByCliente = (clienteId) => api.get(`/clientes/${clienteId}/projetos`);
 export const createProjeto = (clienteId, projeto) => api.post(`/clientes/${clienteId}/projetos`, projeto);
+export const getTodosProjetos = () => api.get('/clientes/projetos');
+

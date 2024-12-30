@@ -1,83 +1,150 @@
-/* Estilos gerais */
-.projeto-list-container {
-  max-width: 800px;
-  margin: 20px auto;
+/* Estilo para os projetos */
+.projeto-list {
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
   text-align: center;
-  color: #333;
 }
 
-.search-form {
-  display: flex;
-  flex-direction: column;
+.projeto-list h3 {
+  font-size: 24px;
+  color: #333;
   margin-bottom: 20px;
 }
 
-.search-form label {
-  font-size: 16px;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.search-form input {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 100%;
-  margin-bottom: 10px;
-  transition: border-color 0.3s;
-}
-
-.search-form input:focus {
-  border-color: #4CAF50;
-  outline: none;
-}
-
-.projetos-list {
+.projetos-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  margin-top: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .projeto-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .projeto-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
 }
 
-.projeto-card h3 {
-  margin-top: 0;
-  font-size: 18px;
+.projeto-card h4 {
+  font-size: 20px;
   color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .projeto-card p {
   color: #555;
   font-size: 14px;
+  margin: 5px 0;
 }
 
-.projeto-card p + p {
-  margin-top: 8px;
+.projeto-card a {
+  margin-top: 10px;
+  text-decoration: none;
+  color: #ADD8E6;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Adicionando estilo para mensagem de "Nenhum projeto encontrado" */
-.projetos-list p {
-  font-size: 18px;
-  color: #888;
+.projeto-card a:hover {
+  background-color: #ADD8E6;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Formulário de criação de projeto */
+.form-criar-projeto {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.form-criar-projeto input,
+.form-criar-projeto textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-criar-projeto button {
+  padding: 10px 20px;
+  background-color: #0796B0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.form-criar-projeto button:hover {
+  background-color: #45a049;
+}
+/* Estilo para o botão "Carregar Todos os Projetos" */
+.load-all-projects-btn {
+  padding: 10px 20px;
+  background-color: #0796B0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+/* Hover effect para o botão */
+.load-all-projects-btn:hover {
+  background-color: #45a049;
+}
+
+/* Estilo dos cards para projetos */
+.projeto-card {
+  background-color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  height: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
+
+.projeto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+}
+

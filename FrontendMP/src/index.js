@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root')); // Pega o elemento root do HTML
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App /> {/* O componente App é o ponto de entrada do seu aplicativo */}
