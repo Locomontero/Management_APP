@@ -1,4 +1,4 @@
-# Management APP
+# Management_APP
 
 Este projeto é uma aplicação web desenvolvida para **gestão de clientes**, **projetos** e **atividades** com o objetivo de fornecer visibilidade e controle funcional aos gestores administrativos.
 
@@ -16,11 +16,9 @@ Este projeto é uma aplicação web desenvolvida para **gestão de clientes**, *
 - **PostgreSQL**: Banco de dados relacional utilizado para armazenar as informações de clientes, projetos e atividades.
 
 ### Arquitetura
-- O projeto está dividido em dois repositórios separados:
-    - **Frontend** (React)
-    - **Backend** (Java/Spring Boot)
-
-  Ambos são conectados como **submódulos Git** para maior segurança e controle.
+- O projeto está estruturado com o **frontend** e **backend** dentro de um único repositório, utilizando **submódulos Git** para maior segurança e controle.
+  - O **Frontend** está na pasta `FrontendMP`.
+  - O **Backend** está na pasta `BackendMP`.
 
 ### Funcionalidade
 A aplicação permite que os gestores administrativos:
@@ -29,15 +27,18 @@ A aplicação permite que os gestores administrativos:
 3. **Visualizem projetos e suas respectivas atividades**, proporcionando uma visão clara do progresso de cada projeto.
 
 ### Fluxo de Trabalho
-1. **Frontend** (React) consome os dados da **API** desenvolvida em **Spring Boot**.
+1. O **Frontend** (React) consome os dados da **API** desenvolvida em **Spring Boot**.
 2. **Axios** no frontend realiza as requisições HTTP para o backend, obtendo e enviando informações de projetos e clientes.
-3. **Backend** é responsável por expor as APIs RESTful para gestão dos dados, armazenando informações no banco de dados **PostgreSQL**.
+3. O **Backend** é responsável por expor as APIs RESTful para gestão dos dados, armazenando informações no banco de dados **PostgreSQL**.
 
 ### Submódulos Git
-Este repositório contém um submódulo Git para o **backend**, que é mantido em um repositório separado:
-- **Frontend**: [Repositório Frontend](https://github.com/Locomontero/FrontendMP)
-- **Backend**: [Repositório Backend](https://github.com/Locomontero/BackendMP)
+Este repositório contém submódulos Git para o **frontend** e o **backend**, que estão localizados nas seguintes pastas:
+- **Frontend**: Pasta `FrontendMP`
+- **Backend**: Pasta `BackendMP`
 
-Caso precise clonar o repositório, utilize o seguinte comando para clonar também o submódulo:
+### Como Clonar o Repositório com Submódulos
+
+Para clonar o repositório principal e inicializar corretamente os submódulos, utilize o seguinte comando:
+
 ```bash
-git clone --recursive https://github.com/Locomontero/Management_APP.git
+git clone --recurse-submodules https://github.com/Locomontero/Management_APP.git
