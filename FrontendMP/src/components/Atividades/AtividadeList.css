@@ -50,7 +50,7 @@
 .atividade-card a {
   margin-top: 10px;
   text-decoration: none;
-  color: #ADD8E6; /* Cor semelhante à do card de projeto */
+  color: #ADD8E6;
   font-size: 16px;
   font-weight: bold;
   padding: 8px 15px;
@@ -86,7 +86,7 @@
 
 .form-criar-atividade button {
   padding: 10px 20px;
-  background-color: #0796B0; /* Cor do botão similar à do projeto */
+  background-color: #0796B0;
   color: white;
   border: none;
   border-radius: 5px;
@@ -99,21 +99,21 @@
   background-color: #45a049;
 }
 
-/* Formulário de criação de atividade (estilo opcional para input ou textarea) */
+/* Formulário de criação de atividade  */
 .form-criar-atividade input,
 .form-criar-atividade textarea {
-  border: 1px solid #ADD8E6; /* Cor do input, similar aos links do card de projeto */
+  border: 1px solid #ADD8E6;
 }
 
 .form-criar-atividade input:focus,
 .form-criar-atividade textarea:focus {
-  border-color: #0796B0; /* Cor de foco nos inputs */
+  border-color: #0796B0;
   outline: none;
 }
 /* Botão Adicionar Atividade */
 button.adicionar-atividade {
   padding: 10px 20px;
-  background-color: #0796B0; /* Cor semelhante aos outros botões */
+  background-color: #0796B0;
   color: white;
   border: none;
   border-radius: 5px;
@@ -127,7 +127,7 @@ button.adicionar-atividade {
 }
 
 button.adicionar-atividade:hover {
-  background-color: #45a049; /* Cor de hover */
+  background-color: #45a049;
 }
 
 /* Estilo do botão ao ser clicado (com um leve efeito de pressionado) */

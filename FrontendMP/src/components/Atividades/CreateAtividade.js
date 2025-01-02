@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom'; // Para pegar o clienteId e projetoId da URL
+import { useParams } from 'react-router-dom';
 
 const CreateAtividade = () => {
   const [nome, setNome] = useState('');
-  const { clienteId, projetoId } = useParams(); // Pega o clienteId e projetoId da URL
+  const { clienteId, projetoId } = useParams();
 
   const handleCreateAtividade = async (e) => {
     e.preventDefault();
 
     try {
-      const atividade = { nome }; // O nome da atividade a ser enviado
+      const atividade = { nome };
       await axios.post(`http://localhost:8080/clientes/${clienteId}/projetos/${projetoId}/atividades`, atividade);
       alert('Atividade criada com sucesso!');
       setNome('');

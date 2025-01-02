@@ -6,24 +6,24 @@ const ClienteSearch = () => {
   const [cliente, setCliente] = useState(null);
   const [error, setError] = useState('');
 
-  // Função para buscar um cliente por ID
+
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      // Verifica se o ID foi preenchido
+
       if (!id) {
         alert("Por favor, insira o ID do cliente.");
         return;
       }
 
-      // Faz a requisição para buscar o cliente pelo ID
+
       const response = await axios.get(`http://localhost:8080/clientes/${id}`);
-      setCliente(response.data);  // Atualiza o estado com os dados do cliente
+      setCliente(response.data);
       setError('');
     } catch (err) {
       console.error("Erro ao buscar cliente:", err);
       setError("Cliente não encontrado.");
-      setCliente(null); // Limpa o cliente caso não encontrado
+      setCliente(null);
     }
   };
 

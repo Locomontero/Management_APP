@@ -9,7 +9,7 @@ const ClienteManagement = () => {
   const [selectedClienteId, setSelectedClienteId] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Função para obter os clientes da API
+
   const fetchClientes = async () => {
     try {
       const response = await axios.get('http://localhost:8080/clientes');
@@ -19,17 +19,17 @@ const ClienteManagement = () => {
     }
   };
 
-  // Função para lidar com a mudança de pesquisa
+
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  // Filtrando clientes de acordo com a pesquisa
+
   const filteredClientes = clientes.filter((cliente) =>
     cliente.nome.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Chamada inicial para obter os clientes
+
   useEffect(() => {
     fetchClientes();
   }, []);

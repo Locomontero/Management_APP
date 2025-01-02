@@ -1,6 +1,6 @@
-// src/components/Projetos/CreateProjeto.js
+
 import React, { useState, useEffect } from 'react';
-import { getProjetosByCliente, createProjeto } from '../../api/ProjetoApi'; // Caminho corrigido para importar a API
+import { getProjetosByCliente, createProjeto } from '../../api/ProjetoApi';
 import { useParams } from 'react-router-dom';
 
 const CreateProjeto = () => {
@@ -12,13 +12,12 @@ const CreateProjeto = () => {
   const [dataInicio, setDataInicio] = useState('');
   const [dataTermino, setDataTermino] = useState('');
 
-  // Função para pegar os status do backend
   useEffect(() => {
     const fetchStatusOptions = async () => {
       try {
-        const response = await getProjetosByCliente(clienteId); // Usa a função da API para buscar os status
+        const response = await getProjetosByCliente(clienteId);
         console.log('Status retornado:', response.data);
-        setStatusOptions(response.data); // A resposta será uma lista de status
+        setStatusOptions(response.data);
       } catch (error) {
         console.error('Erro ao carregar os status', error);
         alert('Erro ao carregar os status do projeto!');
@@ -28,16 +27,16 @@ const CreateProjeto = () => {
     if (clienteId) {
       fetchStatusOptions();
     }
-  }, [clienteId]); // O useEffect é executado quando clienteId mudar
+  }, [clienteId]);
 
-  // Função para pegar os clientes (Adicionando a função de clientes aqui)
+
   useEffect(() => {
     const fetchClientes = async () => {
       try {
-        // Aqui você pode ter uma função que retorna os clientes. Caso não tenha, precisará criar.
-        const response = await createProjeto(); // Essa função precisa ser ajustada conforme seu backend
+
+        const response = await createProjeto();
         console.log('Clientes retornados:', response.data);
-        setClientes(response.data); // A resposta será uma lista de clientes
+        setClientes(response.data);
       } catch (error) {
         console.error('Erro ao carregar os clientes', error);
         alert('Erro ao carregar os clientes!');
@@ -45,9 +44,8 @@ const CreateProjeto = () => {
     };
 
     fetchClientes();
-  }, []); // O useEffect será chamado apenas uma vez quando o componente for montado
+  }, []);
 
-  // Função que lida com a criação do projeto
   const handleCreateProjeto = async (e) => {
     e.preventDefault();
 
@@ -60,11 +58,11 @@ const CreateProjeto = () => {
     };
 
     try {
-      // Usa a função createProjeto para enviar os dados do projeto para a API
+
       await createProjeto(clienteId, projeto);
       alert('Projeto criado com sucesso!');
 
-      // Limpar os campos após criação
+
       setNome('');
       setStatus('');
       setClienteId('');

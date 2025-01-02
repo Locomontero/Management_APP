@@ -7,10 +7,10 @@ const ProjetoList = () => {
   const [projetos, setProjetos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [novoProjeto, setNovoProjeto] = useState({ nome: '', descricao: '' });
-  const { clienteId } = useParams(); // Pegando o clienteId da URL
-  const [exibirTodosProjetos, setExibirTodosProjetos] = useState(false); // Controle para exibir todos os projetos
+  const { clienteId } = useParams();
+  const [exibirTodosProjetos, setExibirTodosProjetos] = useState(false);
 
-  // Função para carregar os projetos do cliente específico
+
   const fetchProjetosByCliente = async () => {
     setLoading(true);
     try {
@@ -23,11 +23,10 @@ const ProjetoList = () => {
     }
   };
 
-  // Função para carregar todos os projetos de todos os clientes
   const fetchAllProjetos = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:8080/clientes/projetos'); // Endpoint para todos os projetos
+      const response = await axios.get('http://localhost:8080/clientes/projetos');
       setProjetos(response.data);
     } catch (err) {
       console.error("Erro ao carregar todos os projetos", err);
@@ -38,13 +37,13 @@ const ProjetoList = () => {
 
   useEffect(() => {
     if (clienteId) {
-      fetchProjetosByCliente(); // Carregar projetos do cliente específico
+      fetchProjetosByCliente();
     } else if (exibirTodosProjetos) {
-      fetchAllProjetos(); // Carregar todos os projetos
+      fetchAllProjetos();
     }
   }, [clienteId, exibirTodosProjetos]);
 
-  // Função para criar um novo projeto
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!novoProjeto.nome || !novoProjeto.descricao) {

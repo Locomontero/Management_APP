@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './ClienteManagement.css';  // Certifique-se de que o CSS foi importado corretamente
+import './ClienteManagement.css';
 
 const ClienteList = () => {
   const [clientes, setClientes] = useState([]);
 
   useEffect(() => {
-    // Buscando todos os clientes
+
     axios.get('http://localhost:8080/clientes')
       .then(response => {
         setClientes(response.data);

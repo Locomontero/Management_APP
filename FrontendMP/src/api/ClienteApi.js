@@ -14,7 +14,6 @@ export const getClientes = async (search = '') => {
   }
 };
 
-// Função para criar um cliente
 export const createCliente = async (cliente) => {
   try {
     const response = await axios.post(apiUrl, cliente);
@@ -25,7 +24,6 @@ export const createCliente = async (cliente) => {
   }
 };
 
-// Função para deletar um cliente
 export const deleteCliente = async (id) => {
   try {
     const response = await axios.delete(`${apiUrl}/${id}`);
@@ -36,7 +34,6 @@ export const deleteCliente = async (id) => {
   }
 };
 
-// Função para criar um projeto
 export const createProjeto = async (clienteId, projeto) => {
   try {
     const response = await axios.post(`${apiUrl}/${clienteId}/projetos`, projeto);
@@ -47,7 +44,7 @@ export const createProjeto = async (clienteId, projeto) => {
   }
 };
 
-// Função para listar projetos de um cliente
+
 export const getProjetos = async (clienteId) => {
   try {
     const response = await axios.get(`${apiUrl}/${clienteId}/projetos`);
@@ -58,7 +55,7 @@ export const getProjetos = async (clienteId) => {
   }
 };
 
-// Função para criar uma atividade
+
 export const createAtividade = async (clienteId, projetoId, atividade) => {
   try {
     const response = await axios.post(`${apiUrl}/${clienteId}/projetos/${projetoId}/atividades`, atividade);
@@ -69,7 +66,7 @@ export const createAtividade = async (clienteId, projetoId, atividade) => {
   }
 };
 
-// Função para listar atividades de um projeto de um cliente
+
 export const getAtividades = async (clienteId, projetoId) => {
   try {
     const response = await axios.get(`${apiUrl}/${clienteId}/projetos/${projetoId}/atividades`);
