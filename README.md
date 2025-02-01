@@ -1,4 +1,5 @@
 # Management_APP
+![Book Converter Diagram](image/management_app_diagram.png)
 
 Este projeto é uma aplicação web desenvolvida para **gestão de clientes**, **projetos** e **atividades** com o objetivo de fornecer visibilidade e controle funcional aos gestores administrativos.
 
